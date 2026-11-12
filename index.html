@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="dark">
+  <meta name="color-scheme" content="light">
   <title>l8PYGIT — زیرساخت تونل‌های مقاوم به سانسور</title>
   <meta name="description" content="l8PYGIT — سازندهٔ زیرساخت تونل‌های معکوس و مقاوم به سانسور: rathole، Backhaul، FRP، GRE، پنل مدیریت کاربر و اتوماسیون تلگرام. پروژه‌های اوپن‌سورس و راه‌های حمایت.">
   <meta name="author" content="l8PYGIT">
-  <meta name="theme-color" content="#070b12">
+  <meta name="theme-color" content="#ffffff">
   <meta name="robots" content="index, follow">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
   <link rel="canonical" href="https://l8pygit.github.io/">
@@ -67,8 +67,9 @@
         </button>
         <ul class="nav-list" id="nav-list">
           <li><a href="#about" data-en="About">درباره</a></li>
-          <li><a href="#stack" data-en="Stack">ابزارها</a></li>
+          <li><a href="#areas" data-en="Focus">حوزه‌ها</a></li>
           <li><a href="#projects" data-en="Projects">پروژه‌ها</a></li>
+          <li><a href="#docs" data-en="Docs">مستندات</a></li>
           <li><a href="#donate" data-en="Donate">حمایت</a></li>
           <li><a href="#contact" data-en="Contact">ارتباط</a></li>
         </ul>
@@ -120,15 +121,12 @@
           </div>
 
           <p class="hero-meta mono" dir="ltr" aria-label="shipping stats">
-            06 projects <span aria-hidden="true">·</span> 04 transports <span aria-hidden="true">·</span> 01 port <span class="meta-key">443</span>
+            06 projects <span aria-hidden="true">·</span> 04 focus areas <span aria-hidden="true">·</span> 01 port <span class="meta-key">443</span>
           </p>
         </div>
 
         <div class="hero-visual">
           <div class="console-wrap">
-            <span class="float-chip fc-a mono" aria-hidden="true">FRP/QUIC</span>
-            <span class="float-chip fc-b mono" aria-hidden="true">SMUX</span>
-            <span class="float-chip fc-c mono" aria-hidden="true">443/tls</span>
 
             <div class="console-card" dir="ltr">
               <div class="console-bar">
@@ -141,17 +139,17 @@
                 <svg class="tunnel-svg" viewBox="0 0 560 400" preserveAspectRatio="xMidYMid meet">
                   <defs>
                     <radialGradient id="vp-glow" cx="50%" cy="50%" r="50%">
-                      <stop offset="0" stop-color="#34d399" stop-opacity=".34"/>
-                      <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+                      <stop offset="0" stop-color="#0a84ff" stop-opacity=".34"/>
+                      <stop offset="1" stop-color="#0a84ff" stop-opacity="0"/>
                     </radialGradient>
                     <linearGradient id="ring-grad" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0" stop-color="#8b5cf6"/>
-                      <stop offset="1" stop-color="#34d399"/>
+                      <stop offset="0" stop-color="#5e5ce6"/>
+                      <stop offset="1" stop-color="#0a84ff"/>
                     </linearGradient>
                     <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0" stop-color="#34d399" stop-opacity="0"/>
-                      <stop offset=".5" stop-color="#34d399" stop-opacity=".85"/>
-                      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+                      <stop offset="0" stop-color="#0a84ff" stop-opacity="0"/>
+                      <stop offset=".5" stop-color="#0a84ff" stop-opacity=".85"/>
+                      <stop offset="1" stop-color="#5e5ce6" stop-opacity="0"/>
                     </linearGradient>
                   </defs>
 
@@ -170,30 +168,30 @@
 
                   <!-- data beam + node link -->
                   <path class="beam" d="M58 344 Q 200 300 330 178" fill="none" stroke="url(#beam)" stroke-width="2"/>
-                  <path class="beam beam-dash" d="M506 340 Q 430 270 330 178" fill="none" stroke="#34d399" stroke-opacity=".35" stroke-width="1.4" stroke-dasharray="4 7"/>
+                  <path class="beam beam-dash" d="M506 340 Q 430 270 330 178" fill="none" stroke="#0a84ff" stroke-opacity=".35" stroke-width="1.4" stroke-dasharray="4 7"/>
 
                   <!-- nodes -->
                   <g class="tunnel-nodes" font-family="'Cascadia Code','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace" font-size="9.5">
-                    <circle cx="58" cy="344" r="4.5" fill="#34d399"/>
-                    <circle cx="58" cy="344" r="9" fill="none" stroke="#34d399" stroke-opacity=".35"/>
-                    <text x="58" y="366" fill="#93a4bb" text-anchor="middle">ir-1</text>
-                    <circle cx="506" cy="340" r="4" fill="#8b5cf6"/>
-                    <circle cx="506" cy="340" r="8.5" fill="none" stroke="#8b5cf6" stroke-opacity=".4"/>
-                    <text x="506" y="362" fill="#93a4bb" text-anchor="middle">nl-2</text>
-                    <circle cx="330" cy="178" r="5" fill="#070b12" stroke="#34d399" stroke-width="1.6"/>
+                    <circle cx="58" cy="344" r="4.5" fill="#0a84ff"/>
+                    <circle cx="58" cy="344" r="9" fill="none" stroke="#0a84ff" stroke-opacity=".35"/>
+                    <text x="58" y="366" fill="#86868b" text-anchor="middle">ir-1</text>
+                    <circle cx="506" cy="340" r="4" fill="#5e5ce6"/>
+                    <circle cx="506" cy="340" r="8.5" fill="none" stroke="#5e5ce6" stroke-opacity=".4"/>
+                    <text x="506" y="362" fill="#86868b" text-anchor="middle">nl-2</text>
+                    <circle cx="330" cy="178" r="5" fill="#ffffff" stroke="#0a84ff" stroke-width="1.6"/>
                   </g>
 
                   <!-- packets travelling through the tunnel (CSS transform, GPU-friendly) -->
                   <g class="packets" aria-hidden="true">
                     <g class="pkt pkt-1">
-                      <circle r="10" fill="none" stroke="#34d399" stroke-opacity=".25"/>
-                      <circle r="4.5" fill="#34d399"/>
+                      <circle r="10" fill="none" stroke="#0a84ff" stroke-opacity=".25"/>
+                      <circle r="4.5" fill="#0a84ff"/>
                     </g>
                     <g class="pkt pkt-2">
-                      <circle r="3.8" fill="#5eead4"/>
+                      <circle r="3.8" fill="#64b5ff"/>
                     </g>
                     <g class="pkt pkt-3">
-                      <circle r="3.2" fill="#a78bfa"/>
+                      <circle r="3.2" fill="#8e8cf0"/>
                     </g>
                   </g>
                 </svg>
@@ -239,7 +237,7 @@
               اول برای خودم یک مسئلهٔ واقعی دارد: مستندات کامل، استقرار تک‌فرمانی و مسیر برگشت امن —
               چون زیرساخت واقعی تحمل «باید کار کند» را ندارد.
             </p>
-            <p class="about-note mono">
+            <p class="about-note mono" dir="ltr">
               <span class="prompt" aria-hidden="true">$</span>
               self-hosted <span class="slash" aria-hidden="true">/</span> docs-first <span class="slash" aria-hidden="true">/</span> rollback-safe
             </p>
@@ -263,11 +261,77 @@
       </div>
     </section>
 
+    <!-- ============================== AREAS ============================== -->
+    <section class="section" id="areas" aria-labelledby="areas-title">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="eyebrow mono"><span class="sec-num">02</span><span data-en="Focus areas">حوزه‌های فعالیت</span></p>
+          <h2 class="sec-title" id="areas-title" data-en="Four things I build.">چهار چیزی که می‌سازم.</h2>
+          <p class="sec-lead" data-en="Each area is a problem I ran into myself — solved in production, then documented and open-sourced where it made sense.">
+            هر حوزه یک مسئلهٔ واقعی است که خودم به آن برخوردم؛ در محیط عملیاتی حل شده، مستند شده
+            و هرجا منطقی بوده اوپن‌سورس شده است.
+          </p>
+        </header>
+
+        <div class="areas-grid">
+          <article class="area-card" data-reveal>
+            <p class="area-kicker mono" aria-hidden="true">01</p>
+            <h3 class="area-title" data-en="Reverse tunnels &amp; censorship circumvention">تونل معکوس و عبور از سانسور</h3>
+            <p class="area-text" data-en="Multi-location designs on a single domain and port: path-based routing, several carriers (ws/kcp/plain/noise plus Backhaul SMUX, FRP and GRE) and one-command, rollback-safe deployment — built to survive DPI.">
+              طراحی چند-موقعیتی روی یک دامنه و یک پورت: مسیریابی با path، چند حامل (ws/kcp/plain/noise به‌همراه
+              Backhaul SMUX، FRP و GRE) و استقرار تک‌فرمانی با بازگشت امن — ساخته‌شده برای مقاومت زیر DPI.
+            </p>
+            <p class="area-refs">
+              <a class="area-ref mono" href="https://l8pygit.github.io/RatholeEngine/" target="_blank" rel="noopener noreferrer">RatholeEngine</a>
+            </p>
+          </article>
+
+          <article class="area-card" data-reveal>
+            <p class="area-kicker mono" aria-hidden="true">02</p>
+            <h3 class="area-title" data-en="Node management &amp; provisioning">مدیریت و فروش نود</h3>
+            <p class="area-text" data-en="Control plane for users, plans, renewals and usage; a multi-tenant node engine with SNI routing on port 443 and dynamic instance ports; plus a deployment wrapper that puts a node on Railway in minutes.">
+              پنل کنترل کاربر، پلن، تمدید و مصرف؛ موتور نود چند-مستأجری با مسیریابی SNI روی پورت ۴۴۳
+              و پورت‌های داینامیک هر اینستنس؛ و wrapper استقراری که نود را در چند دقیقه روی Railway بالا می‌آورد.
+            </p>
+            <p class="area-refs">
+              <a class="area-ref mono" href="https://github.com/l8PYGIT/NodePanel" target="_blank" rel="noopener noreferrer">NodePanel</a>
+              <a class="area-ref mono" href="https://github.com/l8PYGIT/NodeAgent" target="_blank" rel="noopener noreferrer">NodeAgent</a>
+              <a class="area-ref mono" href="https://github.com/l8PYGIT/railway-pg-node" target="_blank" rel="noopener noreferrer">railway-pg-node</a>
+            </p>
+          </article>
+
+          <article class="area-card" data-reveal>
+            <p class="area-kicker mono" aria-hidden="true">03</p>
+            <h3 class="area-title" data-en="Crypto payments">پرداخت کریپتو</h3>
+            <p class="area-text" data-en="A standalone, reusable payment gateway: invoice creation, on-chain confirmation and webhooks — no third-party processor in the middle, so it drops into any panel or bot.">
+              درگاه پرداخت مستقل و قابل استفادهٔ مجدد: ساخت فاکتور، تأیید تراکنش روی زنجیره و وب‌هوک —
+              بدون واسطهٔ پرداخت، تا داخل هر پنل یا رباتی بنشیند.
+            </p>
+            <p class="area-refs">
+              <a class="area-ref mono" href="#projects">NodePaygate</a>
+            </p>
+          </article>
+
+          <article class="area-card" data-reveal>
+            <p class="area-kicker mono" aria-hidden="true">04</p>
+            <h3 class="area-title" data-en="Telegram automation">اتوماسیون تلگرام</h3>
+            <p class="area-text" data-en="Subscription sales and support bots: payments, renewals, automated notifications and user management — the whole flow happens inside Telegram.">
+              ربات فروش و پشتیبانی اشتراک: پرداخت، تمدید، اعلان‌های خودکار و مدیریت کاربر —
+              کل جریان داخل تلگرام انجام می‌شود.
+            </p>
+            <p class="area-refs">
+              <a class="area-ref mono" href="#projects">NodeSalesBot</a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- ============================== STACK ============================== -->
     <section class="section" id="stack" aria-labelledby="stack-title">
       <div class="wrap">
         <header class="sec-head" data-reveal>
-          <p class="eyebrow mono"><span class="sec-num">02</span><span data-en="Stack">ابزارها</span></p>
+          <p class="eyebrow mono"><span class="sec-num">03</span><span data-en="Stack">ابزارها</span></p>
           <h2 class="sec-title" id="stack-title" data-en="The tools I reach for daily.">ابزاری که هر روز دستم است.</h2>
         </header>
 
@@ -305,7 +369,7 @@
     <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="wrap">
         <header class="sec-head" data-reveal>
-          <p class="eyebrow mono"><span class="sec-num">03</span><span data-en="Projects">پروژه‌ها</span></p>
+          <p class="eyebrow mono"><span class="sec-num">04</span><span data-en="Projects">پروژه‌ها</span></p>
           <h2 class="sec-title" id="projects-title" data-en="Selected work.">کارهای منتخب.</h2>
           <p class="sec-lead" data-en="Real, running systems — not demos. Some are open-source, the rest stay private for security reasons.">
             سیستم‌های واقعی و در حال اجرا — نه دمو. بخشی اوپن‌سورس‌اند و بقیه به دلایل امنیتی خصوصی می‌مانند.
@@ -362,10 +426,16 @@
               پلن کنترل فروش دسترسی به نودهای PasarGuard: مدیریت کاربر، پلن‌ها، تمدید و گزارش مصرف در یک پنل.
             </p>
             <ul class="tags" aria-label="technologies"><li>Go</li><li>PostgreSQL</li><li>REST</li></ul>
-            <a class="project-link" href="https://github.com/l8PYGIT/NodePanel" target="_blank" rel="noopener noreferrer">
-              <span data-en="Repository">مخزن</span>
-              <svg class="i-arrow" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/l8PYGIT/NodePanel" target="_blank" rel="noopener noreferrer">
+                <span data-en="Repository">مخزن</span>
+                <svg class="i-arrow" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a class="project-link" href="https://github.com/l8PYGIT/NodePanel/tree/main/docs/wiki" target="_blank" rel="noopener noreferrer">
+                <span data-en="Documentation">مستندات</span>
+                <svg class="i-arrow" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
           </article>
 
           <!-- 03 -->
@@ -380,10 +450,16 @@
               موتور نود چند-مستاجری و اختصاصی برای PasarGuard؛ نصب، پیکربندی و ایزوله‌سازی خودکار هر مستأجر.
             </p>
             <ul class="tags" aria-label="technologies"><li>Go</li><li>PasarGuard</li><li>systemd</li></ul>
-            <a class="project-link" href="https://github.com/l8PYGIT/NodeAgent" target="_blank" rel="noopener noreferrer">
-              <span data-en="Repository">مخزن</span>
-              <svg class="i-arrow" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/l8PYGIT/NodeAgent" target="_blank" rel="noopener noreferrer">
+                <span data-en="Repository">مخزن</span>
+                <svg class="i-arrow" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a class="project-link" href="https://github.com/l8PYGIT/NodeAgent/tree/main/docs/wiki" target="_blank" rel="noopener noreferrer">
+                <span data-en="Documentation">مستندات</span>
+                <svg class="i-arrow" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
           </article>
 
           <!-- 04 · private -->
@@ -434,10 +510,16 @@
               استقرار نود PasarGuard به‌صورت سرویس Docker روی Railway؛ آماده در چند دقیقه.
             </p>
             <ul class="tags" aria-label="technologies"><li>Shell</li><li>Docker</li><li>Railway</li></ul>
-            <a class="project-link" href="https://github.com/l8PYGIT/railway-pg-node" target="_blank" rel="noopener noreferrer">
-              <span data-en="Repository">مخزن</span>
-              <svg class="i-arrow" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/l8PYGIT/railway-pg-node" target="_blank" rel="noopener noreferrer">
+                <span data-en="Repository">مخزن</span>
+                <svg class="i-arrow" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a class="project-link" href="https://github.com/l8PYGIT/railway-pg-node/blob/main/README.md" target="_blank" rel="noopener noreferrer">
+                <span data-en="Guide">راهنما</span>
+                <svg class="i-arrow" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
           </article>
 
           <!-- CTA -->
@@ -456,11 +538,63 @@
       </div>
     </section>
 
+    <!-- ============================== DOCS ============================== -->
+    <section class="section" id="docs" aria-labelledby="docs-title">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="eyebrow mono"><span class="sec-num">05</span><span data-en="Documentation">مستندات</span></p>
+          <h2 class="sec-title" id="docs-title" data-en="Docs, written before the hype.">مستندات، پیش از هر چیز.</h2>
+          <p class="sec-lead" data-en="Every project ships with install steps, architecture notes and troubleshooting — in Persian and English. Start here.">
+            هر پروژه با قدم‌های نصب، توضیح معماری و عیب‌یابی می‌آید — فارسی و انگلیسی. از همین‌جا شروع کن.
+          </p>
+        </header>
+
+        <div class="contact-grid docs-grid">
+          <a class="contact-card" href="https://l8pygit.github.io/RatholeEngine/" target="_blank" rel="noopener noreferrer" data-reveal>
+            <span class="contact-k mono">RatholeEngine</span>
+            <span class="contact-u mono" dir="ltr">docs site</span>
+            <span class="contact-d" data-en="Install, CLI reference, architecture, carriers and troubleshooting">نصب، مرجع CLI، معماری، حامل‌ها و عیب‌یابی</span>
+            <svg class="i-arrow contact-arr" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="contact-card" href="https://github.com/l8PYGIT/RatholeEngine/tree/main/docs" target="_blank" rel="noopener noreferrer" data-reveal>
+            <span class="contact-k mono">RatholeEngine</span>
+            <span class="contact-u mono" dir="ltr">docs/ source</span>
+            <span class="contact-d" data-en="Persian and English sources plus the architecture diagrams">منابع فارسی و انگلیسی به‌همراه دیاگرام‌های معماری</span>
+            <svg class="i-arrow contact-arr" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="contact-card" href="https://github.com/l8PYGIT/RatholeEngine/releases" target="_blank" rel="noopener noreferrer" data-reveal>
+            <span class="contact-k mono">RatholeEngine</span>
+            <span class="contact-u mono" dir="ltr">releases</span>
+            <span class="contact-d" data-en="Changelog and ready-to-install bundles for every version">تغییرات هر نسخه و بسته‌های آمادهٔ نصب</span>
+            <svg class="i-arrow contact-arr" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="contact-card" href="https://github.com/l8PYGIT/NodePanel/tree/main/docs/wiki" target="_blank" rel="noopener noreferrer" data-reveal>
+            <span class="contact-k mono">NodePanel</span>
+            <span class="contact-u mono" dir="ltr">wiki</span>
+            <span class="contact-d" data-en="Roles, panel and node install, adding a node and selling access">نقش‌ها، نصب پنل و نود، افزودن نود و فروش دسترسی</span>
+            <svg class="i-arrow contact-arr" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="contact-card" href="https://github.com/l8PYGIT/NodeAgent/tree/main/docs/wiki" target="_blank" rel="noopener noreferrer" data-reveal>
+            <span class="contact-k mono">NodeAgent</span>
+            <span class="contact-u mono" dir="ltr">wiki</span>
+            <span class="contact-d" data-en="Roles, install flow and multi-tenant node setup">نقش‌ها، روند نصب و راه‌اندازی نود چند-مستأجری</span>
+            <svg class="i-arrow contact-arr" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="contact-card" href="https://github.com/l8PYGIT/railway-pg-node/blob/main/README.md" target="_blank" rel="noopener noreferrer" data-reveal>
+            <span class="contact-k mono">railway-pg-node</span>
+            <span class="contact-u mono" dir="ltr">README</span>
+            <span class="contact-d" data-en="Deployment on Railway, env vars and the TCP proxy setup">استقرار روی Railway، متغیرها و تنظیم TCP Proxy</span>
+            <svg class="i-arrow contact-arr" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ============================== DONATE ============================== -->
     <section class="section section-donate" id="donate" aria-labelledby="donate-title">
       <div class="wrap">
         <header class="sec-head" data-reveal>
-          <p class="eyebrow mono"><span class="sec-num">04</span><span data-en="Support">حمایت</span></p>
+          <p class="eyebrow mono"><span class="sec-num">06</span><span data-en="Support">حمایت</span></p>
           <h2 class="sec-title" id="donate-title" data-en="This stack runs on support.">این زیرساخت با حمایت می‌چرخد.</h2>
           <p class="sec-lead" data-en="Servers, domains and long nights cost money. If any of these tools saved you time, a one-off crypto donation keeps them alive and open-source.">
             سرورها، دامنه‌ها و شب‌های طولانی هزینه دارند. اگر یکی از این ابزارها وقتت را نجات داده،
@@ -526,7 +660,7 @@
     <section class="section" id="contact" aria-labelledby="contact-title">
       <div class="wrap">
         <header class="sec-head" data-reveal>
-          <p class="eyebrow mono"><span class="sec-num">05</span><span data-en="Contact">ارتباط</span></p>
+          <p class="eyebrow mono"><span class="sec-num">07</span><span data-en="Contact">ارتباط</span></p>
           <h2 class="sec-title" id="contact-title" data-en="Let's talk.">حرف بزنیم.</h2>
           <p class="sec-lead" data-en="Collaboration, bug reports, or a project that needs this kind of infrastructure — the fastest routes are below.">
             همکاری، گزارش باگ یا پروژه‌ای که به این نوع زیرساخت نیاز دارد — سریع‌ترین راه‌ها پایین است.

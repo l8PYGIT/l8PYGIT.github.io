@@ -1,46 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192" role="img" aria-label="l8PYGIT monogram">
   <defs>
     <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#34d399"/>
-      <stop offset="1" stop-color="#8b5cf6"/>
+      <stop offset="0" stop-color="#0a84ff"/>
+      <stop offset="1" stop-color="#5e5ce6"/>
     </linearGradient>
-    <radialGradient id="core" cx="50%" cy="38%" r="75%">
-      <stop offset="0" stop-color="#13203a"/>
-      <stop offset="1" stop-color="#070b12"/>
+    <radialGradient id="core" cx="50%" cy="34%" r="78%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eaf2fb"/>
     </radialGradient>
     <linearGradient id="ink" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#f2f7ff"/>
-      <stop offset="1" stop-color="#9fb3c8"/>
+      <stop offset="0" stop-color="#0a84ff"/>
+      <stop offset="1" stop-color="#0058b0"/>
     </linearGradient>
-    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="5" result="b"/>
-      <feMerge>
-        <feMergeNode in="b"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
   </defs>
 
   <circle cx="96" cy="96" r="94" fill="url(#core)"/>
-  <circle cx="96" cy="96" r="91" fill="none" stroke="url(#ring)" stroke-width="2" opacity=".9"/>
-  <circle cx="96" cy="96" r="83" fill="none" stroke="#ffffff" stroke-opacity=".07" stroke-width="1"/>
-  <circle cx="96" cy="96" r="78" fill="none" stroke="#34d399" stroke-opacity=".16" stroke-width="1" stroke-dasharray="3 7"/>
+  <circle cx="96" cy="96" r="91" fill="none" stroke="url(#ring)" stroke-width="2" opacity=".85"/>
+  <circle cx="96" cy="96" r="83" fill="none" stroke="#0071e3" stroke-opacity=".12" stroke-width="1"/>
+  <circle cx="96" cy="96" r="78" fill="none" stroke="#0a84ff" stroke-opacity=".28" stroke-width="1" stroke-dasharray="3 7"/>
 
-  <!-- circuit ticks around the ring -->
-  <g stroke="url(#ring)" stroke-width="2" stroke-linecap="round" opacity=".75">
+  <g stroke="url(#ring)" stroke-width="2" stroke-linecap="round" opacity=".7">
     <path d="M96 9v9"/>
     <path d="M96 174v9"/>
     <path d="M9 96h9"/>
     <path d="M174 96h9"/>
   </g>
-  <g fill="#34d399" opacity=".55">
+  <g fill="#0a84ff" opacity=".6">
     <circle cx="144" cy="34" r="2"/>
     <circle cx="158" cy="96" r="2"/>
     <circle cx="48" cy="158" r="2"/>
   </g>
 
-  <text x="96" y="112" text-anchor="middle" font-family="'Cascadia Code','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace"
-        font-size="58" font-weight="700" letter-spacing="-3" fill="url(#ink)" filter="url(#glow)">L8</text>
-  <text x="96" y="139" text-anchor="middle" font-family="'Cascadia Code','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace"
-        font-size="10" letter-spacing="2.5" fill="#93a4bb">TUNNEL INFRA</text>
+  <text x="96" y="112" text-anchor="middle" font-family="-apple-system,'SF Pro Display','Segoe UI',system-ui,sans-serif"
+        font-size="56" font-weight="700" letter-spacing="-2.5" fill="url(#ink)">L8</text>
+  <text x="96" y="139" text-anchor="middle" font-family="-apple-system,'SF Pro Text','Segoe UI',system-ui,sans-serif"
+        font-size="9.5" letter-spacing="2.4" fill="#86868b">TUNNEL INFRA</text>
 </svg>
