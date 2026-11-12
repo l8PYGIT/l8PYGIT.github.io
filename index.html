@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-lang="fa">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>l8PYGIT — زیرساخت تونل‌های مقاوم به سانسور</title>
+  <meta name="description" content="l8PYGIT — سازندهٔ زیرساخت تونل‌های معکوس و مقاوم به سانسور: rathole، Backhaul، FRP، GRE، پنل مدیریت کاربر و اتوماسیون تلگرام. پروژه‌های اوپن‌سورس و راه‌های حمایت.">
+  <meta name="author" content="l8PYGIT">
+  <meta name="theme-color" content="#070b12">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="canonical" href="https://l8pygit.github.io/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="l8PYGIT">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:url" content="https://l8pygit.github.io/">
+  <meta property="og:title" content="l8PYGIT — Infrastructure for censorship-resistant tunnels">
+  <meta property="og:description" content="Multi-location reverse tunnels, multi-carrier transports, user-management panels and Telegram automation. Open-source · Iran.">
+  <meta property="og:image" content="https://l8pygit.github.io/assets/img/dashboard.png">
+  <meta property="og:image:width" content="1440">
+  <meta property="og:image:height" content="900">
+  <meta property="og:image:alt" content="RatholeHub dashboard screenshot">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="l8PYGIT — Infrastructure for censorship-resistant tunnels">
+  <meta name="twitter:description" content="Multi-location reverse tunnels, multi-carrier transports, panels and Telegram automation.">
+  <meta name="twitter:image" content="https://l8pygit.github.io/assets/img/dashboard.png">
+
+  <script>
+    /* Restore the saved language before first paint (FA is the default). */
+    (function () {
+      try {
+        if (localStorage.getItem('l8-lang') === 'en') {
+          var r = document.documentElement;
+          r.lang = 'en';
+          r.dir = 'ltr';
+          r.setAttribute('data-lang', 'en');
+        }
+      } catch (e) { /* private mode — keep FA */ }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/app.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main" data-en="Skip to content">پرش به محتوا</a>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="l8PYGIT — بازگشت به بالا">
+        <img class="brand-mark" src="assets/img/favicon.svg" width="36" height="36" alt="" decoding="async">
+        <span class="brand-text">
+          <span class="brand-handle mono">l8PYGIT</span>
+          <span class="brand-sub" data-en="tunnel infra">زیرساخت تونل</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="ناوبری اصلی" data-en-aria="Main navigation">
+        <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-list"
+                aria-label="باز کردن منو" data-en-aria="Open menu">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+        <ul class="nav-list" id="nav-list">
+          <li><a href="#about" data-en="About">درباره</a></li>
+          <li><a href="#stack" data-en="Stack">ابزارها</a></li>
+          <li><a href="#projects" data-en="Projects">پروژه‌ها</a></li>
+          <li><a href="#donate" data-en="Donate">حمایت</a></li>
+          <li><a href="#contact" data-en="Contact">ارتباط</a></li>
+        </ul>
+      </nav>
+
+      <div class="head-actions">
+        <a class="ghost-link mono" href="https://github.com/l8PYGIT" target="_blank" rel="noopener noreferrer">
+          GitHub
+          <svg class="i-arrow" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <button class="lang-btn" id="lang-toggle" type="button" aria-label="تغییر زبان به انگلیسی">
+          <span class="lang-code" id="lang-code">EN</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================== HERO ============================== -->
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow mono">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            <span data-en="Open-source · Iran">اوپن‌سورس · ایران</span>
+            <span class="slash" aria-hidden="true">/</span>
+            <span>l8PYGIT</span>
+          </p>
+
+          <h1 class="hero-title">
+            <span class="line" data-en="Building infrastructure for">سازندهٔ زیرساختِ</span>
+            <span class="line line-grad" data-en="censorship-resistant tunnels">تونل‌های مقاوم به سانسور</span>
+          </h1>
+
+          <p class="hero-lead" data-en="One domain, one certificate, one port — and nodes around the world tunneling back into Iran. This is the infrastructure I build and how you can support it.">
+            یک دامنه، یک گواهی، یک پورت — و نودهایی از گوشه‌های دنیا که به داخل ایران تونل می‌زنند.
+            اینجا زیرساخت‌هایی که می‌سازم و راه‌های حمایت از آن‌ها را می‌بینی.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">
+              <span data-en="View projects">پروژه‌ها</span>
+              <svg class="i-arrow" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="#donate">
+              <span data-en="Support the work">حمایت با کریپتو</span>
+            </a>
+          </div>
+
+          <p class="hero-meta mono" dir="ltr" aria-label="shipping stats">
+            06 projects <span aria-hidden="true">·</span> 04 transports <span aria-hidden="true">·</span> 01 port <span class="meta-key">443</span>
+          </p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="console-wrap">
+            <span class="float-chip fc-a mono" aria-hidden="true">FRP/QUIC</span>
+            <span class="float-chip fc-b mono" aria-hidden="true">SMUX</span>
+            <span class="float-chip fc-c mono" aria-hidden="true">443/tls</span>
+
+            <div class="console-card" dir="ltr">
+              <div class="console-bar">
+                <span class="console-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="console-title mono">l8@iran — tunnel/live</span>
+                <span class="console-state mono">UP</span>
+              </div>
+
+              <div class="tunnel-stage" aria-hidden="true">
+                <svg class="tunnel-svg" viewBox="0 0 560 400" preserveAspectRatio="xMidYMid meet">
+                  <defs>
+                    <radialGradient id="vp-glow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0" stop-color="#34d399" stop-opacity=".34"/>
+                      <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+                    </radialGradient>
+                    <linearGradient id="ring-grad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#8b5cf6"/>
+                      <stop offset="1" stop-color="#34d399"/>
+                    </linearGradient>
+                    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0" stop-color="#34d399" stop-opacity="0"/>
+                      <stop offset=".5" stop-color="#34d399" stop-opacity=".85"/>
+                      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+
+                  <circle cx="330" cy="178" r="150" fill="url(#vp-glow)"/>
+                  <ellipse cx="286" cy="318" rx="230" ry="52" fill="url(#vp-glow)" opacity=".45"/>
+
+                  <!-- perspective corridor: nested rounded rectangles -->
+                  <g class="tunnel-rings" fill="none" stroke="url(#ring-grad)">
+                    <rect class="ring" x="50" y="30" width="440" height="300" rx="26" stroke-opacity=".10" stroke-width="1.2"/>
+                    <rect class="ring" x="92" y="62" width="356" height="236" rx="22" stroke-opacity=".14" stroke-width="1.2"/>
+                    <rect class="ring" x="130" y="92" width="280" height="176" rx="18" stroke-opacity=".18" stroke-width="1.3"/>
+                    <rect class="ring" x="164" y="118" width="212" height="124" rx="14" stroke-opacity=".24" stroke-width="1.4"/>
+                    <rect class="ring" x="194" y="140" width="152" height="80" rx="10" stroke-opacity=".32" stroke-width="1.5"/>
+                    <rect class="ring" x="220" y="158" width="100" height="44" rx="7" stroke-opacity=".44" stroke-width="1.6"/>
+                  </g>
+
+                  <!-- data beam + node link -->
+                  <path class="beam" d="M58 344 Q 200 300 330 178" fill="none" stroke="url(#beam)" stroke-width="2"/>
+                  <path class="beam beam-dash" d="M506 340 Q 430 270 330 178" fill="none" stroke="#34d399" stroke-opacity=".35" stroke-width="1.4" stroke-dasharray="4 7"/>
+
+                  <!-- nodes -->
+                  <g class="tunnel-nodes" font-family="'Cascadia Code','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace" font-size="9.5">
+                    <circle cx="58" cy="344" r="4.5" fill="#34d399"/>
+                    <circle cx="58" cy="344" r="9" fill="none" stroke="#34d399" stroke-opacity=".35"/>
+                    <text x="58" y="366" fill="#93a4bb" text-anchor="middle">ir-1</text>
+                    <circle cx="506" cy="340" r="4" fill="#8b5cf6"/>
+                    <circle cx="506" cy="340" r="8.5" fill="none" stroke="#8b5cf6" stroke-opacity=".4"/>
+                    <text x="506" y="362" fill="#93a4bb" text-anchor="middle">nl-2</text>
+                    <circle cx="330" cy="178" r="5" fill="#070b12" stroke="#34d399" stroke-width="1.6"/>
+                  </g>
+
+                  <!-- packets travelling through the tunnel (CSS transform, GPU-friendly) -->
+                  <g class="packets" aria-hidden="true">
+                    <g class="pkt pkt-1">
+                      <circle r="10" fill="none" stroke="#34d399" stroke-opacity=".25"/>
+                      <circle r="4.5" fill="#34d399"/>
+                    </g>
+                    <g class="pkt pkt-2">
+                      <circle r="3.8" fill="#5eead4"/>
+                    </g>
+                    <g class="pkt pkt-3">
+                      <circle r="3.2" fill="#a78bfa"/>
+                    </g>
+                  </g>
+                </svg>
+
+                <span class="scanline"></span>
+              </div>
+
+              <div class="console-foot">
+                <div class="status-line mono">
+                  <span class="prompt" aria-hidden="true">$</span>
+                  <span id="status-text" data-status="1">tunnel up · carrier FRP/QUIC · rtt 38ms</span>
+                  <span class="caret" aria-hidden="true"></span>
+                </div>
+                <div class="readouts mono" aria-hidden="true">
+                  <span><b>nodes</b> 4/4</span>
+                  <span><b>tls</b> 1.3</span>
+                  <span><b>loss</b> 0.0%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== ABOUT ============================== -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="eyebrow mono"><span class="sec-num">01</span><span data-en="About">دربارهٔ من</span></p>
+          <h2 class="sec-title" id="about-title" data-en="Infrastructure, end to end.">زیرساخت، از صفر تا صد.</h2>
+        </header>
+
+        <div class="about-grid">
+          <div class="about-copy" data-reveal>
+            <p data-en="I build multi-location reverse-tunnel infrastructure: one domain, one port 443, and nodes outside Iran linked through several transports. My work spans tunnel cores (rathole, Backhaul, FRP, GRE) all the way to user-management panels, Telegram sales bots and crypto payment gateways.">
+              زیرساخت تونل‌های معکوس چند-موقعیتی می‌سازم: یک دامنه، یک پورت ۴۴۳ و نودهایی بیرون از ایران
+              که با چند حامل مختلف به هم وصل می‌شوند. کارم از هستهٔ تونل (rathole، Backhaul، FRP، GRE)
+              تا پنل مدیریت کاربر، ربات تلگرام فروش و درگاه پرداخت کریپتو را در بر می‌گیرد.
+            </p>
+            <p data-en="Mostly Go and Python, with Bash, nginx and systemd as a second home. Everything I ship solves a real problem of mine first: complete docs, one-command deployment and a safe rollback path — real infrastructure has no patience for 'it should work'.">
+              بیشتر Go و Python می‌نویسم و Bash و nginx و systemd خانهٔ دومم هستند. هر چیزی که می‌سازم
+              اول برای خودم یک مسئلهٔ واقعی دارد: مستندات کامل، استقرار تک‌فرمانی و مسیر برگشت امن —
+              چون زیرساخت واقعی تحمل «باید کار کند» را ندارد.
+            </p>
+            <p class="about-note mono">
+              <span class="prompt" aria-hidden="true">$</span>
+              self-hosted <span class="slash" aria-hidden="true">/</span> docs-first <span class="slash" aria-hidden="true">/</span> rollback-safe
+            </p>
+          </div>
+
+          <aside class="spec-card" data-reveal aria-label="نمای سریع" data-en-aria="Quick profile">
+            <div class="spec-bar mono">
+              <span class="spec-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              whoami <span class="slash" aria-hidden="true">—</span> today
+            </div>
+            <dl class="spec-list">
+              <div class="spec-row"><dt data-en="Focus">تمرکز</dt><dd>tunnel infra <span aria-hidden="true">/</span> proxies</dd></div>
+              <div class="spec-row"><dt data-en="Languages">زبان‌ها</dt><dd>Go <span aria-hidden="true">·</span> Python <span aria-hidden="true">·</span> Bash</dd></div>
+              <div class="spec-row"><dt data-en="Environment">محیط</dt><dd>Linux <span aria-hidden="true">·</span> nginx <span aria-hidden="true">·</span> systemd</dd></div>
+              <div class="spec-row"><dt data-en="Philosophy">فلسفه</dt><dd data-en="docs-first, self-hosted">مستندات‌محور، سلف‌هاست</dd></div>
+              <div class="spec-row"><dt data-en="License">انتشار</dt><dd>AGPL-3.0-or-later</dd></div>
+            </dl>
+            <p class="spec-foot mono" aria-hidden="true">last deploy: <span class="ok">ok</span> · 2026</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== STACK ============================== -->
+    <section class="section" id="stack" aria-labelledby="stack-title">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="eyebrow mono"><span class="sec-num">02</span><span data-en="Stack">ابزارها</span></p>
+          <h2 class="sec-title" id="stack-title" data-en="The tools I reach for daily.">ابزاری که هر روز دستم است.</h2>
+        </header>
+
+        <div class="stack-grid">
+          <div class="stack-card" data-reveal>
+            <h3 class="stack-group mono" data-en="Languages">زبان‌ها</h3>
+            <ul class="chips">
+              <li>Go</li><li>Python</li><li>Bash</li><li>JavaScript</li><li>SQL</li>
+            </ul>
+          </div>
+          <div class="stack-card" data-reveal>
+            <h3 class="stack-group mono" data-en="Infra / Network">زیرساخت / شبکه</h3>
+            <ul class="chips">
+              <li>Linux</li><li>nginx</li><li>systemd</li><li>Docker</li><li>GRE</li>
+              <li>rathole</li><li>FRP</li><li>Backhaul (SMUX)</li><li>WireGuard</li>
+            </ul>
+          </div>
+          <div class="stack-card" data-reveal>
+            <h3 class="stack-group mono" data-en="Data">داده</h3>
+            <ul class="chips">
+              <li>PostgreSQL</li><li>Redis</li><li>SQLite</li>
+            </ul>
+          </div>
+          <div class="stack-card" data-reveal>
+            <h3 class="stack-group mono" data-en="Automation">اتوماسیون</h3>
+            <ul class="chips">
+              <li>Telegram Bots</li><li>GitHub Actions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== PROJECTS ============================== -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="eyebrow mono"><span class="sec-num">03</span><span data-en="Projects">پروژه‌ها</span></p>
+          <h2 class="sec-title" id="projects-title" data-en="Selected work.">کارهای منتخب.</h2>
+          <p class="sec-lead" data-en="Real, running systems — not demos. Some are open-source, the rest stay private for security reasons.">
+            سیستم‌های واقعی و در حال اجرا — نه دمو. بخشی اوپن‌سورس‌اند و بقیه به دلایل امنیتی خصوصی می‌مانند.
+          </p>
+        </header>
+
+        <div class="projects-grid">
+          <!-- 01 · featured -->
+          <article class="project project--featured" data-reveal>
+            <div class="project-body">
+              <div class="project-top mono">
+                <span class="project-index">01</span>
+                <span class="project-lang">Shell · Python</span>
+                <span class="pill pill-public"><span data-en="Public">عمومی</span></span>
+              </div>
+              <h3 class="project-title">RatholeEngine</h3>
+              <p class="project-desc" data-en="Multi-location reverse-tunnel engine on rathole + Nginx: one domain and port 443, path-based routing, carriers ws/kcp/plain/noise plus Backhaul/FRP/GRE, a web hub with service controls, a REST agent and a static docs site.">
+                هستهٔ تونل معکوس چند-موقعیتی روی rathole + Nginx: یک دامنه و پورت ۴۴۳، مسیریابی با path،
+                حامل‌های ws/kcp/plain/noise و Backhaul/FRP/GRE، هاب وب با کنترل سرویس، REST Agent و سایت مستندات استاتیک.
+              </p>
+              <ul class="tags" aria-label="technologies">
+                <li>rathole</li><li>nginx</li><li>systemd</li><li>docs</li>
+              </ul>
+              <div class="project-links">
+                <a class="project-link" href="https://github.com/l8PYGIT/RatholeEngine" target="_blank" rel="noopener noreferrer">
+                  <span data-en="Repository">مخزن</span>
+                  <svg class="i-arrow" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a class="project-link" href="https://l8pygit.github.io/RatholeEngine/" target="_blank" rel="noopener noreferrer">
+                  <span data-en="Documentation">مستندات</span>
+                  <svg class="i-arrow" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+            <figure class="project-shot">
+              <figcaption class="shot-chrome mono">
+                <span class="shot-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                hub <span class="slash" aria-hidden="true">/</span> dashboard
+              </figcaption>
+              <img src="assets/img/dashboard.png" width="1440" height="900" loading="lazy" decoding="async"
+                   alt="نمای داشبورد RatholeHub" data-en-alt="RatholeHub dashboard screenshot">
+            </figure>
+          </article>
+
+          <!-- 02 -->
+          <article class="project" data-reveal>
+            <div class="project-top mono">
+              <span class="project-index">02</span>
+              <span class="project-lang">Go</span>
+              <span class="pill pill-public"><span data-en="Public">عمومی</span></span>
+            </div>
+            <h3 class="project-title">NodePanel</h3>
+            <p class="project-desc" data-en="Control plane for selling PasarGuard node access: users, plans, renewals and usage reporting in one panel.">
+              پلن کنترل فروش دسترسی به نودهای PasarGuard: مدیریت کاربر، پلن‌ها، تمدید و گزارش مصرف در یک پنل.
+            </p>
+            <ul class="tags" aria-label="technologies"><li>Go</li><li>PostgreSQL</li><li>REST</li></ul>
+            <a class="project-link" href="https://github.com/l8PYGIT/NodePanel" target="_blank" rel="noopener noreferrer">
+              <span data-en="Repository">مخزن</span>
+              <svg class="i-arrow" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </article>
+
+          <!-- 03 -->
+          <article class="project" data-reveal>
+            <div class="project-top mono">
+              <span class="project-index">03</span>
+              <span class="project-lang">Go</span>
+              <span class="pill pill-public"><span data-en="Public">عمومی</span></span>
+            </div>
+            <h3 class="project-title">NodeAgent</h3>
+            <p class="project-desc" data-en="PasarGuard multi-tenant and dedicated node engine: automated install, configuration and per-tenant isolation.">
+              موتور نود چند-مستاجری و اختصاصی برای PasarGuard؛ نصب، پیکربندی و ایزوله‌سازی خودکار هر مستأجر.
+            </p>
+            <ul class="tags" aria-label="technologies"><li>Go</li><li>PasarGuard</li><li>systemd</li></ul>
+            <a class="project-link" href="https://github.com/l8PYGIT/NodeAgent" target="_blank" rel="noopener noreferrer">
+              <span data-en="Repository">مخزن</span>
+              <svg class="i-arrow" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </article>
+
+          <!-- 04 · private -->
+          <article class="project project--private" data-reveal>
+            <div class="project-top mono">
+              <span class="project-index">04</span>
+              <span class="project-lang">Go</span>
+              <span class="pill pill-private">
+                <svg viewBox="0 0 16 16" width="10" height="10" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+                <span data-en="Private">خصوصی</span>
+              </span>
+            </div>
+            <h3 class="project-title">NodePaygate</h3>
+            <p class="project-desc" data-en="Standalone, reusable crypto payment gateway: invoice, on-chain confirmation and webhooks.">
+              درگاه پرداخت کریپتوی مستقل و قابل استفادهٔ مجدد؛ فاکتور، تأیید تراکنش روی زنجیره و وب‌هوک.
+            </p>
+            <ul class="tags" aria-label="technologies"><li>Go</li><li>webhooks</li><li>crypto</li></ul>
+            <p class="project-locked mono" data-en="Private repository — not publicly available">مخزن خصوصی — در دسترس عمومی نیست</p>
+          </article>
+
+          <!-- 05 · private -->
+          <article class="project project--private" data-reveal>
+            <div class="project-top mono">
+              <span class="project-index">05</span>
+              <span class="project-lang">Go</span>
+              <span class="pill pill-private">
+                <svg viewBox="0 0 16 16" width="10" height="10" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+                <span data-en="Private">خصوصی</span>
+              </span>
+            </div>
+            <h3 class="project-title">NodeSalesBot</h3>
+            <p class="project-desc" data-en="Telegram sales bot for node-access subscriptions: payments, renewals and automated notifications.">
+              ربات تلگرام فروش اشتراک دسترسی به نود؛ پرداخت، تمدید و اعلان‌های خودکار.
+            </p>
+            <ul class="tags" aria-label="technologies"><li>Go</li><li>Telegram</li><li>payments</li></ul>
+            <p class="project-locked mono" data-en="Private repository — not publicly available">مخزن خصوصی — در دسترس عمومی نیست</p>
+          </article>
+
+          <!-- 06 -->
+          <article class="project" data-reveal>
+            <div class="project-top mono">
+              <span class="project-index">06</span>
+              <span class="project-lang">Shell</span>
+              <span class="pill pill-public"><span data-en="Public">عمومی</span></span>
+            </div>
+            <h3 class="project-title">railway-pg-node</h3>
+            <p class="project-desc" data-en="Deploy a PasarGuard node as a Docker service on Railway, ready in minutes.">
+              استقرار نود PasarGuard به‌صورت سرویس Docker روی Railway؛ آماده در چند دقیقه.
+            </p>
+            <ul class="tags" aria-label="technologies"><li>Shell</li><li>Docker</li><li>Railway</li></ul>
+            <a class="project-link" href="https://github.com/l8PYGIT/railway-pg-node" target="_blank" rel="noopener noreferrer">
+              <span data-en="Repository">مخزن</span>
+              <svg class="i-arrow" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </article>
+
+          <!-- CTA -->
+          <article class="project project--cta" data-reveal>
+            <p class="project-top mono"><span class="project-index">07</span><span class="project-lang">∞</span></p>
+            <h3 class="project-title" data-en="More on GitHub.">بقیه‌اش روی GitHub.</h3>
+            <p class="project-desc" data-en="Experiments, rewrites and the rest of the infra live in the same place.">
+              آزمایش‌ها، بازنویسی‌ها و باقی زیرساخت همان‌جا زندگی می‌کنند.
+            </p>
+            <a class="project-link" href="https://github.com/l8PYGIT" target="_blank" rel="noopener noreferrer">
+              <span data-en="Browse repositories">مشاهدهٔ مخزن‌ها</span>
+              <svg class="i-arrow" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== DONATE ============================== -->
+    <section class="section section-donate" id="donate" aria-labelledby="donate-title">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="eyebrow mono"><span class="sec-num">04</span><span data-en="Support">حمایت</span></p>
+          <h2 class="sec-title" id="donate-title" data-en="This stack runs on support.">این زیرساخت با حمایت می‌چرخد.</h2>
+          <p class="sec-lead" data-en="Servers, domains and long nights cost money. If any of these tools saved you time, a one-off crypto donation keeps them alive and open-source.">
+            سرورها، دامنه‌ها و شب‌های طولانی هزینه دارند. اگر یکی از این ابزارها وقتت را نجات داده،
+            یک حمایت کریپتوییِ یک‌باره آن‌ها را زنده و اوپن‌سورس نگه می‌دارد.
+          </p>
+        </header>
+
+        <div class="donate-grid">
+          <article class="donate-card" data-reveal>
+            <div class="donate-head">
+              <span class="donate-net mono">USDT</span>
+              <span class="donate-chain mono">BEP-20 · BSC</span>
+            </div>
+            <p class="donate-label" data-en="BSC network address">آدرس شبکهٔ BSC</p>
+            <div class="addr-row">
+              <code class="addr" dir="ltr">0x2364898407e8A42DA554B909989cd9B28eE61314</code>
+              <button class="copy-btn" type="button" data-copy="0x2364898407e8A42DA554B909989cd9B28eE61314" data-network="USDT" aria-label="کپی آدرس USDT">
+                <svg class="i-copy" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><rect x="5.5" y="5.5" width="8.5" height="8.5" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M10.5 3.6A1.6 1.6 0 0 0 8.9 2H3.6A1.6 1.6 0 0 0 2 3.6v5.3c0 .7.4 1.3 1.1 1.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+                <span class="copy-label" data-en="Copy">کپی</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="donate-card" data-reveal>
+            <div class="donate-head">
+              <span class="donate-net mono">TON</span>
+              <span class="donate-chain mono">The Open Network</span>
+            </div>
+            <p class="donate-label" data-en="TON address">آدرس شبکهٔ TON</p>
+            <div class="addr-row">
+              <code class="addr" dir="ltr">UQCondoXRwQNt0fQvvmYGa_Fn39D9szjQH4eBqIcUd5r1yfH</code>
+              <button class="copy-btn" type="button" data-copy="UQCondoXRwQNt0fQvvmYGa_Fn39D9szjQH4eBqIcUd5r1yfH" data-network="TON" aria-label="کپی آدرس TON">
+                <svg class="i-copy" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><rect x="5.5" y="5.5" width="8.5" height="8.5" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M10.5 3.6A1.6 1.6 0 0 0 8.9 2H3.6A1.6 1.6 0 0 0 2 3.6v5.3c0 .7.4 1.3 1.1 1.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+                <span class="copy-label" data-en="Copy">کپی</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="donate-card" data-reveal>
+            <div class="donate-head">
+              <span class="donate-net mono">TRX</span>
+              <span class="donate-chain mono">Tron</span>
+            </div>
+            <p class="donate-label" data-en="Tron network address">آدرس شبکهٔ Tron</p>
+            <div class="addr-row">
+              <code class="addr" dir="ltr">TRhnkJFpj9uxA2aqUxapJAFhkzNPbfxKwp</code>
+              <button class="copy-btn" type="button" data-copy="TRhnkJFpj9uxA2aqUxapJAFhkzNPbfxKwp" data-network="TRX" aria-label="کپی آدرس TRX">
+                <svg class="i-copy" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><rect x="5.5" y="5.5" width="8.5" height="8.5" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M10.5 3.6A1.6 1.6 0 0 0 8.9 2H3.6A1.6 1.6 0 0 0 2 3.6v5.3c0 .7.4 1.3 1.1 1.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+                <span class="copy-label" data-en="Copy">کپی</span>
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <p class="donate-note" data-en="Send only on the network written on the card, and compare the address carefully before confirming. Crypto transfers are irreversible.">
+          فقط روی شبکه‌ای که روی کارت نوشته شده ارسال کن و پیش از تأیید، آدرس را با دقت مقایسه کن.
+          انتقال کریپتو برگشت‌پذیر نیست.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================== CONTACT ============================== -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="eyebrow mono"><span class="sec-num">05</span><span data-en="Contact">ارتباط</span></p>
+          <h2 class="sec-title" id="contact-title" data-en="Let's talk.">حرف بزنیم.</h2>
+          <p class="sec-lead" data-en="Collaboration, bug reports, or a project that needs this kind of infrastructure — the fastest routes are below.">
+            همکاری، گزارش باگ یا پروژه‌ای که به این نوع زیرساخت نیاز دارد — سریع‌ترین راه‌ها پایین است.
+          </p>
+        </header>
+
+        <div class="contact-grid">
+          <a class="contact-card" href="https://github.com/l8PYGIT" target="_blank" rel="noopener noreferrer" data-reveal>
+            <span class="contact-k mono">GitHub</span>
+            <span class="contact-u mono" dir="ltr">@l8PYGIT</span>
+            <span class="contact-d" data-en="Code, issues and releases">کد، ایشوها و ریلیزها</span>
+            <svg class="i-arrow contact-arr" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="contact-card" href="https://t.me/l8PY4NET" target="_blank" rel="noopener noreferrer" data-reveal>
+            <span class="contact-k mono">Telegram</span>
+            <span class="contact-u mono" dir="ltr">@l8PY4NET</span>
+            <span class="contact-d" data-en="Direct messages and project channel">ارتباط مستقیم و کانال پروژه‌ها</span>
+            <svg class="i-arrow contact-arr" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="contact-card" href="https://l8pygit.github.io/RatholeEngine/" target="_blank" rel="noopener noreferrer" data-reveal>
+            <span class="contact-k mono">Docs</span>
+            <span class="contact-u mono" dir="ltr">RatholeEngine</span>
+            <span class="contact-d" data-en="Install, carriers and troubleshooting">نصب، حامل‌ها و عیب‌یابی</span>
+            <svg class="i-arrow contact-arr" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 13 13 3M6 3h7v7" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p class="footer-brand mono">l8PYGIT <span class="slash" aria-hidden="true">/</span> L8</p>
+      <p class="footer-line mono">Plain HTML/CSS/JS <span aria-hidden="true">·</span> no trackers <span aria-hidden="true">·</span> no CDN <span aria-hidden="true">·</span> AGPL-3.0-or-later</p>
+      <p class="footer-extra" data-en="Written by hand, hosted on GitHub Pages.">با دست نوشته شده؛ میزبانی روی GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
